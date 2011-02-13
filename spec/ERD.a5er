@@ -27,8 +27,44 @@ FooterRight=
 ShowPageoutRelation=1
 
 [Relation]
+Entity1=CLASDEVENTS
+Entity2=EVENTS
+RelationType1=2
+RelationType2=3
+Fields1=CLASSEVENT
+Fields2=CLASSEVENT
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,5000,5000,5000,R,R
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=500
+Bar2=500
+Bar3=500
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=CLASDEVENTS
+LName=飲み会種別
+Comment=
+TableOption=
+Page=MAIN
+Left=900
+Top=500
+Field="飲み会種別ID","CLASSEVENT","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
+Field="飲み会種別名","CLASSEVENTNAME","@VARCHAR",,,"","飲み放題とか",$FFFFFFFF
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20110213225352
+Position="MAIN",900,500
+
+[Relation]
 Entity1=EVENTS
-Entity2=MANAGEATTENDS
+Entity2=TODO
 RelationType1=2
 RelationType2=3
 Fields1=EVENTID
@@ -48,21 +84,21 @@ TermPos2=R
 
 [Relation]
 Entity1=USERS
-Entity2=MANAGEATTENDS
+Entity2=TODO
 RelationType1=2
 RelationType2=3
 Fields1=USERID
 Fields2=USERID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
+Position="MAIN",0,5000,5000,4110,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=500
 Bar2=500
-Bar3=500
+Bar3=411
 TermPos1=R
 TermPos2=R
 
@@ -95,14 +131,14 @@ Fields1=GROUPID
 Fields2=GROUPID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,5000,5000,4645,R,R
+Position="MAIN",0,5000,5000,5900,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=500
 Bar2=500
-Bar3=464
+Bar3=590
 TermPos1=R
 TermPos2=R
 
@@ -131,17 +167,19 @@ Comment=
 TableOption=
 Page=MAIN
 Left=100
-Top=300
+Top=350
 Field="所属ID","ASSIGNID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
 Field="グループID","GROUPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="ユーザID","USERID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
+Field="住所","ADRESS","@VARCHAR",,,"","",$FFFFFFFF
+Field="電話番号","PHONENUMBER","@VARCHAR",,,"","",$FFFFFFFF
 Field="幹事識別","MANAGE","@VARCHAR",,,"","",$FFFFFFFF
-Field="連絡先","ADRESS","@VARCHAR",,,"","",$FFFFFFFF
+Field="メールアドレス","MAILADRESS","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110124001107
-Position="MAIN",100,300
+ModifiedDateTime=20110213211214
+Position="MAIN",100,350
 
 [Entity]
 PName=USERS
@@ -150,70 +188,37 @@ Comment=
 TableOption=
 Page=MAIN
 Left=100
-Top=600
+Top=650
 Field="ユーザID","USERID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="ユーザ名","USERNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="性別","SEX","@VARCHAR","NOT NULL",,"","M:男性、F:女性",$FFFFFFFF
-Field="飲める/飲めない","DIRNK","@VARCHAR","NOT NULL",,"","D:飲める、N:飲めない",$FFFFFFFF
+Field="ユーザ名(漢字)","USERNAMEC","","NOT NULL",,"","",$FFFFFFFF
+Field="ユーザ名(カナ)","USERNAMEK","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
+Field="電話番号","PHONENUMBER","@VARCHAR",,,"","",$FFFFFFFF
+Field="性別","SEX","@VARCHAR",,,"","M:男性、F:女性",$FFFFFFFF
+Field="飲める/飲めない","DIRNK","@VARCHAR",,,"","D:飲める、N:飲めない",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110123235321
-Position="MAIN",100,600
+ModifiedDateTime=20110213210951
+Position="MAIN",100,650
 
 [Entity]
-PName=MANAGEATTENDS
-LName=飲み会参加管理
+PName=TODO
+LName=TODO
 Comment=
 TableOption=
 Page=MAIN
 Left=500
-Top=600
-Field="出欠管理ID","MANAGEATTENDSID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
+Top=650
+Field="TODOID","TODOID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
 Field="ユーザID","USERID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="飲み会ID","EVENTID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="参加/不参加","TAKEEVENT","@VARCHAR",,,"","A:参加、N:不参加",$FFFFFFFF
+Field="TODO種別","TODOCALSS","@VARCHAR",,,"","A:承認　R:回答　O:開催　I:報告",$FFFFFFFF
+Field="完了/未完了","TAKEEVENT","@VARCHAR",,,"","O:OK　N:NG",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110124001957
-Position="MAIN",500,600
-
-[Relation]
-Entity1=CLASDEVENTS
-Entity2=EVENTS
-RelationType1=2
-RelationType2=3
-Fields1=CLASSEVENT
-Fields2=CLASSEVENTID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=500
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=CLASDEVENTS
-LName=飲み会種別
-Comment=
-TableOption=
-Page=MAIN
-Left=950
-Top=500
-Field="飲み会種別ID","CLASSEVENT","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="飲み会種別名","CLASSEVENTNAME","@VARCHAR",,,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123232117
-Position="MAIN",950,500
+ModifiedDateTime=20110213204819
+Position="MAIN",500,650
 
 [Relation]
 Entity1=shops
@@ -245,15 +250,15 @@ Left=500
 Top=100
 Field="飲み会ID","EVENTID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
 Field="飲み会名","EVENTNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="飲み会種別ID","CLASSEVENTID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
+Field="案内文","NOTICE","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="店ID","SHOPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="グループID","GROUPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="開催日","OPENDATE","@TIME","NOT NULL",,"","",$FFFFFFFF
 Field="会費","DUE","@INT","NOT NULL",,"","",$FFFFFFFF
+Field="飲み会種別","CLASSEVENT","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110123232009
+ModifiedDateTime=20110213203524
 Position="MAIN",500,100
 
 [Relation]
@@ -265,14 +270,14 @@ Fields1=SHOPID
 Fields2=SHOPID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
+Position="MAIN",0,5000,5000,4578,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=500
 Bar2=500
-Bar3=500
+Bar3=458
 TermPos1=R
 TermPos2=R
 
@@ -282,8 +287,8 @@ LName=店評価
 Comment=
 TableOption=
 Page=MAIN
-Left=1750
-Top=500
+Left=1200
+Top=100
 Field="評価ID","VALUEID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
 Field="店ID","SHOPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="ユーザID","USERID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
@@ -295,263 +300,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20110123230708
-Position="MAIN",1750,500
-
-[Relation]
-Entity1=FOODS
-Entity2=shops
-RelationType1=1
-RelationType2=3
-Fields1=FOODID
-Fields2=FOODID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=500
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=FOODS
-LName=料理
-Comment=
-TableOption=
-Page=MAIN
-Left=1750
-Top=250
-Field="料理ID","FOODID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="料理栄","FOODNAME","@DECIMAL","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123224822
-Position="MAIN",1750,250
-
-[Relation]
-Entity1=JUNRES
-Entity2=shops
-RelationType1=1
-RelationType2=3
-Fields1=GUNREID
-Fields2=GUNREID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5276,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=528
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=JUNRES
-LName=ジャンル
-Comment=
-TableOption=
-Page=MAIN
-Left=1750
-Top=150
-Field="ジャンルID","GUNREID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="ジャンル名","GUNRENAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123224629
-Position="MAIN",1750,150
-
-[Relation]
-Entity1=AREASS
-Entity2=shops
-RelationType1=1
-RelationType2=3
-Fields1=AREASID
-Fields2=AREASID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=500
-TermPos1=R
-TermPos2=R
-
-[Relation]
-Entity1=AREAMS
-Entity2=AREASS
-RelationType1=2
-RelationType2=3
-Fields1=AREAMID
-Fields2=AREAMID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5000,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=500
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=AREASS
-LName=小サービスエリア
-Comment=
-TableOption=
-Page=MAIN
-Left=1750
-Top=350
-Field="小サービスエリアID","AREASID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="小サービスエリア名","AREASNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="中サービスエリアID","AREAMID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123183747
-Position="MAIN",1750,350
-
-[Relation]
-Entity1=AREAS
-Entity2=AREAMS
-RelationType1=2
-RelationType2=3
-Fields1=AREAID
-Fields2=AREAID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5546,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=555
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=AREAMS
-LName=中サービスエリア
-Comment=
-TableOption=
-Page=MAIN
-Left=2150
-Top=350
-Field="中サービスエリアID","AREAMID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="中サービスエリア名","AREAMNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="サービスエリアID","AREAID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123183435
-Position="MAIN",2150,350
-
-[Relation]
-Entity1=AREALS
-Entity2=AREAS
-RelationType1=2
-RelationType2=3
-Fields1=AREALID
-Fields2=AREALID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,3022,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=302
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=AREAS
-LName=サービスエリア
-Comment=
-TableOption=
-Page=MAIN
-Left=2150
-Top=200
-Field="サービスエリアID","AREAID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="サービスエリア名","AREANAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="大サービスエリアID","AREALID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123182624
-Position="MAIN",2150,200
-
-[Entity]
-PName=AREALS
-LName=大サービスエリア
-Comment=
-TableOption=
-Page=MAIN
-Left=2150
-Top=50
-Field="大サービスエリアID","AREALID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="大サービスエリア名","AREALNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123182858
-Position="MAIN",2150,50
-
-[Relation]
-Entity1=shops
-Entity2=URL
-RelationType1=2
-RelationType2=3
-Fields1=SHOPID
-Fields2=SHOPID
-Cardinarity1=
-Cardinarity2=
-Position="MAIN",0,5000,5000,5669,R,R
-Dependence=0
-Caption=
-PName=
-LineMode=0
-Bar1=500
-Bar2=500
-Bar3=567
-TermPos1=R
-TermPos2=R
-
-[Entity]
-PName=URL
-LName=URL群
-Comment=
-TableOption=
-Page=MAIN
-Left=1750
-Top=50
-Field="URLID","URLID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="店ID","SHOPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="URL","URL","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-EffectMode=None
-Color=$000000
-BkColor=$FFFFFF
-ModifiedDateTime=20110123180901
-Position="MAIN",1750,50
+Position="MAIN",1200,100
 
 [Entity]
 PName=shops
@@ -559,21 +308,12 @@ LName=店
 Comment=
 TableOption=
 Page=MAIN
-Left=950
+Left=900
 Top=100
 Field="店ID","SHOPID","@VARCHAR","NOT NULL",0,"","",$FFFFFFFF
-Field="店名","SHOPNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="小サービスエリアID","AREASID","@VARCHAR",,,"","",$FFFFFFFF
-Field="キーワード","KEYWORD","@VARCHAR",,,"","",$FFFFFFFF
-Field="交通アクセス","ACCESS","@VARCHAR",,,"","",$FFFFFFFF
-Field="定休日","HOLIDAY","@VARCHAR",,,"","",$FFFFFFFF
-Field="ジャンルID","GUNREID","@VARCHAR",,,"","",$FFFFFFFF
-Field="料理ID","FOODID","@VARCHAR",,,"","",$FFFFFFFF
-Field="収容人数","CAPACITY","@INT",,,"","",$FFFFFFFF
-Field="条件","CONDITION","@VARCHAR",,,"","飲み放題有/なしなどの条件をカンマ区切りで入力",$FFFFFFFF
-Field="予算","BUDGET","@DECIMAL","NOT NULL",,"","",$FFFFFFFF
+Field="サイト","URL","@VARCHAR",,,"","",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110123225227
-Position="MAIN",950,100
+ModifiedDateTime=20110213201742
+Position="MAIN",900,100
