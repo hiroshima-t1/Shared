@@ -131,14 +131,14 @@ Fields1=GROUPID
 Fields2=GROUPID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,5000,5000,5867,R,R
+Position="MAIN",0,5000,5000,5900,R,R
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=500
 Bar2=500
-Bar3=587
+Bar3=590
 TermPos1=R
 TermPos2=R
 
@@ -254,13 +254,14 @@ Field="飲み会名","EVENTNAME","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="主催者ID","PROMOTERID","@VARCHAR","NOT NULL",,"","主催者のユーザID",$FFFFFFFF
 Field="案内文","NOTICE","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 Field="店ID","SHOPID","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
-Field="開催日","OPENDATE","@TIME","NOT NULL",,"","",$FFFFFFFF
+Field="開催日","OPENDATE","@DATE","NOT NULL",,"","",$FFFFFFFF
+Field="企画日","PLANDATE","@DATE","NOT NULL",,"","",$FFFFFFFF
 Field="会費","DUE","@INT","NOT NULL",,"","",$FFFFFFFF
 Field="飲み会種別","CLASSEVENT","@VARCHAR","NOT NULL",,"","",$FFFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20110214225119
+ModifiedDateTime=20110215234158
 Position="MAIN",500,100
 
 [Relation]
